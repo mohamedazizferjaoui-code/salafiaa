@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ===== RESET & BASE ===== */
         :root {
             --primary: #1a472a;
             --primary-dark: #0d2c1a;
@@ -64,7 +63,6 @@
             z-index: 0;
         }
 
-        /* ===== LOADING SCREEN ===== */
         #loading-screen {
             position: fixed;
             top: 0;
@@ -85,7 +83,6 @@
             color: var(--gold);
             margin-bottom: 30px;
             animation: pulse 2s infinite;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .loading-text {
@@ -93,15 +90,6 @@
             color: var(--accent);
             margin-bottom: 20px;
             text-align: center;
-        }
-
-        .loading-subtext {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            margin-bottom: 40px;
-            text-align: center;
-            max-width: 300px;
-            line-height: 1.6;
         }
 
         .progress-bar {
@@ -121,30 +109,6 @@
             border-radius: 3px;
         }
 
-        .loading-stats {
-            display: flex;
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--gold);
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin-top: 5px;
-        }
-
-        /* ===== MAIN APP CONTAINER ===== */
         #app {
             width: 100%;
             max-width: 100%;
@@ -162,9 +126,9 @@
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
             padding: 15px;
+            padding-bottom: 80px;
         }
 
-        /* ===== PROGRESS BAR ===== */
         .top-progress {
             position: fixed;
             top: 0;
@@ -180,16 +144,13 @@
             background: linear-gradient(90deg, var(--accent), var(--gold));
             width: 0%;
             transition: width 0.5s ease;
-            border-radius: 0 3px 3px 0;
         }
 
-        /* ===== SCREENS ===== */
         .screen {
             display: none;
             flex-direction: column;
             min-height: calc(100vh - 30px);
             animation: fadeIn 0.5s ease;
-            padding-bottom: 80px;
         }
 
         .screen.active {
@@ -207,21 +168,13 @@
             100% { transform: scale(1); }
         }
 
-        /* ===== HEADINGS ===== */
-        h1, h2, h3 {
-            color: var(--text-main);
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
         h1 {
             font-size: 2rem;
             color: var(--gold);
             text-align: center;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            position: relative;
             padding-bottom: 10px;
             margin-top: 10px;
+            position: relative;
         }
 
         h1::after {
@@ -234,19 +187,6 @@
             background: linear-gradient(90deg, transparent, var(--accent), transparent);
         }
 
-        h2 {
-            font-size: 1.6rem;
-            text-align: center;
-            color: var(--accent);
-        }
-
-        h3 {
-            font-size: 1.3rem;
-            color: var(--accent);
-            line-height: 1.4;
-        }
-
-        /* ===== BUTTONS ===== */
         .btn {
             background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
             color: #1a472a;
@@ -263,110 +203,13 @@
             justify-content: center;
             gap: 10px;
             transition: var(--transition);
-            box-shadow: 0 4px 12px rgba(193, 154, 107, 0.2);
-            position: relative;
-            overflow: hidden;
             min-height: 56px;
         }
 
         .btn:active {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(193, 154, 107, 0.3);
         }
 
-        .btn-ghost {
-            background: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent);
-            box-shadow: none;
-        }
-
-        .btn-ghost:active {
-            background: rgba(193, 154, 107, 0.1);
-        }
-
-        .btn-warning {
-            background: linear-gradient(135deg, var(--warning) 0%, #b7791f 100%);
-            box-shadow: 0 4px 12px rgba(214, 158, 46, 0.2);
-            color: #1a472a;
-        }
-
-        .btn-success {
-            background: linear-gradient(135deg, var(--success) 0%, #22543d 100%);
-            box-shadow: 0 4px 12px rgba(45, 133, 86, 0.2);
-            color: white;
-        }
-
-        .btn-danger {
-            background: linear-gradient(135deg, var(--error) 0%, #9b2c2c 100%);
-            box-shadow: 0 4px 12px rgba(197, 48, 48, 0.2);
-            color: white;
-        }
-
-        .btn-info {
-            background: linear-gradient(135deg, var(--info) 0%, #2c5282 100%);
-            box-shadow: 0 4px 12px rgba(49, 130, 206, 0.2);
-            color: white;
-        }
-
-        /* ===== HOME SCREEN ===== */
-        .welcome-icon {
-            text-align: center;
-            font-size: 4rem;
-            margin: 20px 0;
-            color: var(--accent);
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .intro-card {
-            background: rgba(193, 154, 107, 0.1);
-            padding: 20px;
-            border-radius: var(--radius);
-            margin-bottom: 20px;
-            border: 1px solid rgba(193, 154, 107, 0.3);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin: 20px 0;
-        }
-
-        .stat-item-home {
-            background: rgba(26, 71, 42, 0.5);
-            border: 1px solid rgba(193, 154, 107, 0.2);
-            border-radius: var(--radius);
-            padding: 15px;
-            text-align: center;
-        }
-
-        .stat-value-home {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--gold);
-            display: block;
-        }
-
-        .stat-label-home {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-top: 5px;
-        }
-
-        .level-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--accent) 100%);
-            color: var(--primary-dark);
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin: 5px 0;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        }
-
-        /* ===== QUIZ SCREEN ===== */
         .timer-container {
             width: 100%;
             height: 8px;
@@ -455,7 +298,6 @@
             justify-content: center;
             font-weight: 900;
             font-size: 1.1rem;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
 
         .q-points {
@@ -530,7 +372,6 @@
             font-weight: bold;
         }
 
-        /* ===== EVIDENCE SECTION ===== */
         .evidence {
             background: rgba(193, 154, 107, 0.15);
             border: 1px solid var(--accent);
@@ -572,18 +413,11 @@
             color: var(--text-secondary);
         }
 
-        /* ===== COMPLETION SCREEN ===== */
-        .completion-screen {
-            text-align: center;
-            padding: 30px 0;
-        }
-
         .completion-icon {
             font-size: 5rem;
             color: var(--gold);
             margin-bottom: 20px;
             animation: pulse 2s infinite;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .final-score {
@@ -591,14 +425,17 @@
             font-weight: 900;
             color: var(--gold);
             margin: 20px 0;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
-        .achievement-level {
-            font-size: 1.2rem;
-            padding: 8px 20px;
-            margin: 15px auto;
+        .level-badge {
             display: inline-block;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--accent) 100%);
+            color: var(--primary-dark);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin: 5px 0;
         }
 
         .quote {
@@ -614,27 +451,34 @@
             line-height: 1.6;
         }
 
-        /* ===== STATS SCREEN ===== */
-        .stats-container {
-            margin: 20px 0;
-        }
-
-        .stats-details {
+        .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
-            margin-bottom: 20px;
+            margin: 20px 0;
         }
 
-        .chart-container {
+        .stat-item-home {
             background: rgba(26, 71, 42, 0.5);
+            border: 1px solid rgba(193, 154, 107, 0.2);
             border-radius: var(--radius);
             padding: 15px;
-            margin: 20px 0;
-            border: 1px solid rgba(193, 154, 107, 0.2);
+            text-align: center;
         }
 
-        /* ===== BOTTOM NAV ===== */
+        .stat-value-home {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--gold);
+            display: block;
+        }
+
+        .stat-label-home {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 5px;
+        }
+
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -646,7 +490,6 @@
             display: flex;
             gap: 10px;
             z-index: 100;
-            backdrop-filter: blur(10px);
         }
 
         .nav-btn {
@@ -670,7 +513,6 @@
             background: rgba(193, 154, 107, 0.1);
         }
 
-        /* ===== NOTIFICATION ===== */
         .notification {
             position: fixed;
             top: 20px;
@@ -708,58 +550,11 @@
             border-left-color: #9b2c2c;
         }
 
-        .notification.warning {
-            background: var(--warning);
-            color: white;
-            border-left-color: #b7791f;
-        }
-
         @keyframes slideDown {
             from { transform: translateY(-100px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 360px) {
-            h1 { font-size: 1.8rem; }
-            h2 { font-size: 1.4rem; }
-            h3 { font-size: 1.2rem; }
-            .btn { padding: 14px; font-size: 15px; }
-            .q-card { padding: 15px; }
-            .opt { padding: 14px; min-height: 56px; }
-            .completion-icon { font-size: 4rem; }
-            .final-score { font-size: 2.5rem; }
-        }
-
-        @media (min-width: 768px) {
-            #app {
-                max-width: 500px;
-                height: 90vh;
-                border-radius: var(--radius);
-                margin: 5vh auto;
-                border: 1px solid var(--card-border);
-            }
-            
-            .app-content {
-                border-radius: var(--radius);
-            }
-        }
-
-        /* ===== SCROLLBAR ===== */
-        ::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: rgba(0,0,0,0.1);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 2px;
-        }
-
-        /* ===== SOUND CONTROLS ===== */
         .sound-controls {
             position: fixed;
             top: 10px;
@@ -779,63 +574,51 @@
             justify-content: center;
             cursor: pointer;
             transition: var(--transition);
-            backdrop-filter: blur(5px);
         }
 
         .sound-btn:active {
             background: rgba(193, 154, 107, 0.2);
             transform: scale(0.95);
         }
+
+        @media (max-width: 360px) {
+            h1 { font-size: 1.8rem; }
+            .btn { padding: 14px; font-size: 15px; }
+            .q-card { padding: 15px; }
+            .opt { padding: 14px; min-height: 56px; }
+            .completion-icon { font-size: 4rem; }
+            .final-score { font-size: 2.5rem; }
+        }
     </style>
 </head>
 <body>
-    <!-- ===== LOADING SCREEN ===== -->
+    <!-- Loading Screen -->
     <div id="loading-screen">
         <div class="loading-logo">
             <i class="fas fa-book-quran"></i>
         </div>
         <div class="loading-text">موسوعة السلفية الشاملة</div>
-        <div class="loading-subtext">يتم تحميل 120 سؤالاً في العقيدة والفقه والرد على الشبهات</div>
-        
         <div class="progress-bar">
             <div class="progress-fill" id="loading-progress"></div>
         </div>
-        
-        <div class="loading-stats">
-            <div class="stat-item">
-                <span class="stat-value" id="loading-questions">0</span>
-                <span class="stat-label">سؤال</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-value" id="loading-categories">0</span>
-                <span class="stat-label">قسم</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-value" id="loading-time">0</span>
-                <span class="stat-label">ثانية</span>
-            </div>
-        </div>
     </div>
 
-    <!-- ===== MAIN APP ===== -->
+    <!-- Main App -->
     <div id="app">
-        <!-- Top Progress Bar -->
         <div class="top-progress">
             <div id="global-progress"></div>
         </div>
 
-        <!-- Sound Controls -->
         <div class="sound-controls">
             <button class="sound-btn" id="sound-toggle">
                 <i class="fas fa-volume-up"></i>
             </button>
         </div>
 
-        <!-- App Content -->
         <div class="app-content">
-            <!-- ===== HOME SCREEN ===== -->
+            <!-- Home Screen -->
             <div id="scr-home" class="screen active">
-                <div class="welcome-icon">
+                <div style="text-align: center; font-size: 4rem; margin: 20px 0; color: var(--accent);">
                     <i class="fas fa-mosque"></i>
                 </div>
                 <h1>موسوعة السلفية</h1>
@@ -843,21 +626,19 @@
                     رحلة علمية شاملة في العقيدة والفقه والرد على الشبهات
                 </p>
                 
-                <div class="intro-card">
-                    <h3 style="color: var(--gold); margin-bottom: 10px;">
+                <div style="background: rgba(193, 154, 107, 0.1); padding: 20px; border-radius: var(--radius); margin-bottom: 20px; border: 1px solid rgba(193, 154, 107, 0.3);">
+                    <h3 style="color: var(--gold); margin-bottom: 10px; text-align: center;">
                         <i class="fas fa-info-circle"></i> عن الموسوعة
                     </h3>
                     <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
-                        تحتوي هذه الموسوعة على 120 سؤالاً مختاراً في:<br>
-                        • أصول العقيدة السلفية<br>
+                        120 سؤالاً في:<br>
+                        • العقيدة السلفية<br>
                         • الفقه وأحكام العبادات<br>
-                        • السيرة النبوية والتراجم<br>
-                        • الرد على شبهات الفرق الضالة<br>
-                        • الأخلاق والآداب الإسلامية
+                        • السيرة النبوية<br>
+                        • الرد على شبهات الفرق الضالة
                     </p>
                 </div>
 
-                <!-- User Stats -->
                 <div class="stats-grid">
                     <div class="stat-item-home">
                         <span class="stat-value-home" id="home-best-score">0</span>
@@ -867,32 +648,13 @@
                         <span class="stat-value-home" id="home-play-count">0</span>
                         <span class="stat-label-home">مرات اللعب</span>
                     </div>
-                    <div class="stat-item-home">
-                        <span class="stat-value-home" id="home-level">طالب علم</span>
-                        <span class="stat-label-home">المستوى</span>
-                    </div>
-                    <div class="stat-item-home">
-                        <span class="stat-value-home" id="home-correct">0</span>
-                        <span class="stat-label-home">إجابات صحيحة</span>
-                    </div>
                 </div>
 
-                <!-- Progress Resume -->
-                <div id="resume-section" style="display: none;">
-                    <button id="resume-btn" class="btn btn-warning">
-                        <i class="fas fa-play-circle"></i>
-                        استكمال التحدي السابق
-                        <span id="resume-progress" style="font-size: 0.8rem; margin-right: 8px;"></span>
-                    </button>
-                </div>
-
-                <!-- Start Button -->
-                <button id="start-btn" class="btn btn-success">
+                <button id="start-btn" class="btn" style="background: linear-gradient(135deg, var(--success) 0%, #22543d 100%); color: white; margin-top: 20px;">
                     <i class="fas fa-graduation-cap"></i>
                     بدء رحلة التعلم
                 </button>
 
-                <!-- Quick Stats -->
                 <div style="background: rgba(212, 175, 55, 0.1); padding: 15px; border-radius: var(--radius); margin: 20px 0; border: 1px solid rgba(212, 175, 55, 0.3);">
                     <h3 style="color: var(--gold); text-align: center; margin-bottom: 10px; font-size: 1.1rem;">
                         <i class="fas fa-trophy"></i> نظام المستويات
@@ -900,41 +662,34 @@
                     <div style="font-size: 0.85rem; color: var(--text-secondary);">
                         <div style="display: flex; justify-content: space-between; margin: 6px 0; padding: 4px 0;">
                             <span>⭐ مبتدئ</span>
-                            <span>0 - 499 نقطة</span>
+                            <span>0 - 200 نقطة</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin: 6px 0; padding: 4px 0;">
                             <span>⭐⭐ متوسط</span>
-                            <span>500 - 1499 نقطة</span>
+                            <span>201 - 300 نقطة</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin: 6px 0; padding: 4px 0;">
                             <span>⭐⭐⭐ متقدم</span>
-                            <span>1500 - 2999 نقطة</span>
+                            <span>301 - 500 نقطة</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin: 6px 0; padding: 4px 0;">
                             <span>⭐⭐⭐⭐ ممتاز</span>
-                            <span>3000 - 3999 نقطة</span>
+                            <span>500 - 1200 نقطة</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin: 6px 0; padding: 4px 0;">
                             <span>⭐⭐⭐⭐⭐ خبير</span>
-                            <span>4000+ نقطة</span>
+                            <span>1201+ نقطة</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Navigation Buttons -->
-                <div style="display: flex; flex-direction: column; gap: 10px;">
-                    <button class="btn btn-info" onclick="app.showStats()">
-                        <i class="fas fa-chart-bar"></i>
-                        إحصائيات مفصلة
-                    </button>
-                    <button class="btn" onclick="app.showAbout()">
-                        <i class="fas fa-question-circle"></i>
-                        حول الموسوعة
-                    </button>
-                </div>
+                <button class="btn" onclick="app.showStats()" style="background: linear-gradient(135deg, var(--info) 0%, #2c5282 100%); color: white;">
+                    <i class="fas fa-chart-bar"></i>
+                    إحصائيات مفصلة
+                </button>
             </div>
 
-            <!-- ===== QUIZ SCREEN ===== -->
+            <!-- Quiz Screen -->
             <div id="scr-quiz" class="screen">
                 <div class="timer-container">
                     <div id="timer-fill"></div>
@@ -964,9 +719,7 @@
                     <div id="category-tag" class="category-tag">عقيدة</div>
                     <h3 class="q-text" id="q-text">سؤال يحمل هنا...</h3>
                     
-                    <div class="options-container" id="options-box">
-                        <!-- Options will be loaded here -->
-                    </div>
+                    <div class="options-container" id="options-box"></div>
                     
                     <div id="evidence-box" class="evidence">
                         <div class="evidence-title">
@@ -982,21 +735,16 @@
                     <i class="fas fa-arrow-left"></i>
                     السؤال التالي
                 </button>
-                
-                <button class="btn btn-ghost" onclick="app.saveAndExit()">
-                    <i class="fas fa-save"></i>
-                    حفظ والعودة
-                </button>
             </div>
             
-            <!-- ===== STATS SCREEN ===== -->
+            <!-- Stats Screen -->
             <div id="scr-stats" class="screen">
                 <h1>
                     <i class="fas fa-chart-bar" style="color: var(--accent); margin-left: 10px;"></i>
                     الإحصائيات
                 </h1>
                 
-                <div class="stats-details">
+                <div class="stats-grid">
                     <div class="stat-item-home">
                         <span class="stat-value-home" id="stat-best-score">0</span>
                         <span class="stat-label-home">أفضل نتيجة</span>
@@ -1010,41 +758,20 @@
                         <span class="stat-label-home">إجابات صحيحة</span>
                     </div>
                     <div class="stat-item-home">
-                        <span class="stat-value-home" id="stat-avg-score">0</span>
-                        <span class="stat-label-home">متوسط النقاط</span>
-                    </div>
-                    <div class="stat-item-home">
                         <span class="stat-value-home" id="stat-percentage">0%</span>
                         <span class="stat-label-home">نسبة النجاح</span>
                     </div>
-                    <div class="stat-item-home">
-                        <span class="stat-value-home" id="stat-total-time">0</span>
-                        <span class="stat-label-home">دقائق لعب</span>
-                    </div>
                 </div>
                 
-                <!-- Level Info -->
-                <div style="background: rgba(212, 175, 55, 0.1); padding: 15px; border-radius: var(--radius); margin: 20px 0; border: 1px solid rgba(212, 175, 55, 0.3);">
-                    <h3 style="color: var(--gold); text-align: center; margin-bottom: 10px; font-size: 1.1rem;">
-                        <i class="fas fa-trophy"></i> مستواك الحالي
-                    </h3>
-                    <div style="text-align: center;">
-                        <div class="level-badge" id="current-level-badge">مبتدئ</div>
-                        <p style="font-size: 0.9rem; margin-top: 10px; color: var(--text-secondary);" id="level-description">
-                            ابدأ رحلتك في طلب العلم
-                        </p>
-                    </div>
-                </div>
-                
-                <button class="btn" onclick="app.setScreen('scr-home')">
+                <button class="btn" onclick="app.setScreen('scr-home')" style="margin-top:20px">
                     <i class="fas fa-home"></i>
                     العودة للرئيسية
                 </button>
             </div>
             
-            <!-- ===== COMPLETION SCREEN ===== -->
+            <!-- Completion Screen -->
             <div id="scr-complete" class="screen">
-                <div class="completion-screen">
+                <div style="text-align: center; padding: 30px 0;">
                     <div class="completion-icon">
                         <i class="fas fa-crown"></i>
                     </div>
@@ -1055,15 +782,10 @@
                     
                     <div class="final-score" id="final-score">0</div>
                     
-                    <!-- Achievement Level -->
                     <div style="margin: 20px 0;">
-                        <div id="achievement-level" class="level-badge achievement-level">مبتدئ</div>
-                        <p id="achievement-message" style="font-size: 1rem; margin-top: 10px; color: var(--text-secondary);">
-                            ابدأ رحلتك في طلب العلم
-                        </p>
+                        <div id="achievement-level" class="level-badge" style="font-size: 1rem; padding: 6px 15px;">مبتدئ</div>
                     </div>
                     
-                    <!-- Stats -->
                     <div style="margin: 25px 0;">
                         <div class="info-bar">
                             <div class="info-item">
@@ -1074,10 +796,6 @@
                                 <div class="info-label">النقاط الكلية</div>
                                 <div id="total-score" class="info-value">0</div>
                             </div>
-                            <div class="info-item">
-                                <div class="info-label">وقت الإكمال</div>
-                                <div id="completion-time" class="info-value">-</div>
-                            </div>
                         </div>
                     </div>
                     
@@ -1085,60 +803,15 @@
                         "يرفع الله الذين آمنوا منكم والذين أوتوا العلم درجات"
                     </div>
                     
-                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 25px;">
-                        <button class="btn" onclick="app.returnToHome()">
-                            <i class="fas fa-home"></i>
-                            العودة للرئيسية
-                        </button>
-                        <button class="btn btn-warning" onclick="app.start()">
-                            <i class="fas fa-redo"></i>
-                            بدء تحدي جديد
-                        </button>
-                    </div>
+                    <button class="btn" onclick="app.returnToHome()" style="margin-top:25px">
+                        <i class="fas fa-home"></i>
+                        العودة للرئيسية
+                    </button>
                 </div>
-            </div>
-
-            <!-- ===== ABOUT SCREEN ===== -->
-            <div id="scr-about" class="screen">
-                <h1>
-                    <i class="fas fa-question-circle" style="color: var(--accent); margin-left: 10px;"></i>
-                    حول الموسوعة
-                </h1>
-                
-                <div class="intro-card">
-                    <h3 style="color: var(--gold); margin-bottom: 15px;">الهدف من الموسوعة</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 15px;">
-                        هذه الموسوعة تهدف إلى تقديم العلم الشرعي بأسلوب تفاعلي مبسط، مع التركيز على:
-                    </p>
-                    <ul style="color: var(--text-secondary); line-height: 1.6; padding-right: 20px; margin-bottom: 20px;">
-                        <li>تعليم أصول العقيدة السلفية الصحيحة</li>
-                        <li>الرد على الشبهات بأدلة من الكتاب والسنة</li>
-                        <li>تبسيط المسائل الفقهية المهمة</li>
-                        <li>ترسيخ محبة السلف الصالح في القلوب</li>
-                    </ul>
-                </div>
-
-                <div style="background: rgba(49, 130, 206, 0.1); padding: 15px; border-radius: var(--radius); margin: 20px 0; border: 1px solid rgba(49, 130, 206, 0.3);">
-                    <h3 style="color: var(--info); margin-bottom: 10px;">
-                        <i class="fas fa-book"></i> مصادر الموسوعة
-                    </h3>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
-                        اعتمدت الموسوعة على مصادر موثوقة مثل:<br>
-                        • كتب شيخ الإسلام ابن تيمية<br>
-                        • مؤلفات الإمام محمد بن عبد الوهاب<br>
-                        • كتب العقيدة للسلف الصالح<br>
-                        • الفتاوى المعتمدة من العلماء الراسخين
-                    </p>
-                </div>
-
-                <button class="btn" onclick="app.setScreen('scr-home')">
-                    <i class="fas fa-arrow-right"></i>
-                    العودة للرئيسية
-                </button>
             </div>
         </div>
 
-        <!-- ===== BOTTOM NAVIGATION ===== -->
+        <!-- Bottom Navigation -->
         <div class="bottom-nav">
             <button class="nav-btn" onclick="app.setScreen('scr-home')">
                 <i class="fas fa-home"></i>
@@ -1148,34 +821,154 @@
                 <i class="fas fa-chart-bar"></i>
                 الإحصائيات
             </button>
-            <button class="nav-btn" onclick="app.showAbout()">
-                <i class="fas fa-info-circle"></i>
-                حول
-            </button>
         </div>
     </div>
 
-    <!-- ===== NOTIFICATION ===== -->
+    <!-- Notification -->
     <div id="notification" class="notification"></div>
 
-    <!-- ===== SOUND ELEMENTS ===== -->
+    <!-- Audio Elements -->
     <audio id="sound-correct" preload="auto">
         <source src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3" type="audio/mpeg">
     </audio>
     <audio id="sound-wrong" preload="auto">
         <source src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-fail-notification-946.mp3" type="audio/mpeg">
     </audio>
-    <audio id="sound-complete" preload="auto">
-        <source src="https://assets.mixkit.co/sfx/preview/mixkit-winning-chimes-2015.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="sound-timer" preload="auto">
-        <source src="https://assets.mixkit.co/sfx/preview/mixkit-unlock-game-notification-253.mp3" type="audio/mpeg">
-    </audio>
 
     <script>
-        // ===== GLOBAL VARIABLES =====
+        // ===== 120 COMPLETE QUESTIONS =====
+        const questions = [
+            // العقيدة - 40 سؤالاً
+            {id:1, question:"ما أول ما فرض الله على العباد؟", options:["الصلاة","التوحيد","الصيام"], correct:1, explanation:"أول ما فرض الله على العباد توحيده وعبادته وحده لا شريك له.", source:"سورة الذاريات آية 56", category:"عقيدة", points:10},
+            {id:2, question:"ما معنى 'لا إله إلا الله'؟", options:["لا خالق إلا الله","لا معبود بحق إلا الله","لا رازق إلا الله"], correct:1, explanation:"معناها نفي الألوهية عن كل ما سوى الله وإثباتها لله وحده.", source:"كتاب التوحيد لابن خزيمة", category:"عقيدة", points:10},
+            {id:3, question:"أين الله عز وجل؟", options:["في كل مكان","في السماء على العرش","لا مكان له"], correct:1, explanation:"الله فوق السماوات على العرش استوى.", source:"سورة طه آية 5", category:"عقيدة", points:10},
+            {id:4, question:"ما حكم من يدعو غير الله؟", options:["شرك أكبر","بدعة","معصية"], correct:0, explanation:"دعاء غير الله شرك أكبر مخرج من الملة.", source:"فتاوى ابن باز", category:"عقيدة", points:10},
+            {id:5, question:"من هم السلف الصالح؟", options:["الصحابة فقط","التابعون فقط","الصحابة والتابعون وأتباعهم"], correct:2, explanation:"هم القرون الثلاثة المفضلة: الصحابة، التابعون، تابعو التابعين.", source:"صحيح البخاري", category:"عقيدة", points:10},
+            {id:6, question:"كيف نؤمن بأسماء الله وصفاته؟", options:["نؤولها","نثبتها دون تكييف","نفوض معناها"], correct:1, explanation:"نؤمن بها كما جاءت من غير تحريف ولا تعطيل ولا تكييف.", source:"العقيدة الطحاوية", category:"عقيدة", points:10},
+            {id:7, question:"ما هو الشرك الأصغر؟", options:["الرياء","دعاء الأموات","الذبح للقبور"], correct:0, explanation:"كالرياء والحلف بغير الله، لا يخرج من الملة.", source:"كتاب التوحيد", category:"عقيدة", points:10},
+            {id:8, question:"هل القرآن مخلوق؟", options:["نعم","لا، كلام الله غير مخلوق","بعضه مخلوق"], correct:1, explanation:"القرآن كلام الله منزل غير مخلوق.", source:"العقيدة الواسطية", category:"عقيدة", points:10},
+            {id:9, question:"ما حكم سب الصحابة؟", options:["معصية","بدعة","كفر في بعض الأحيان"], correct:2, explanation:"سب الصحابة طعن في الدين، ومن سبهم فقد كفر.", source:"فتاوى اللجنة الدائمة", category:"عقيدة", points:10},
+            {id:10, question:"ما هي البدعة في الدين؟", options:["كل جديد","ما أحدث على خلاف السنة","الاجتهاد في العبادة"], correct:1, explanation:"هي طريقة في الدين مخترعة تضاهي الشريعة.", source:"الاعتصام للشاطبي", category:"عقيدة", points:10},
+            {id:11, question:"ما حكم التوسل بجاه النبي ﷺ؟", options:["سنة","بدعة","جائز"], correct:1, explanation:"التوسل بجاه النبي بدعة، والتوسل المشروع هو بأسماء الله.", source:"القول المفيد", category:"عقيدة", points:10},
+            {id:12, question:"هل نرى الله في الدنيا؟", options:["نعم","لا","بعض الأولياء يرونه"], correct:1, explanation:"لا يرى الله أحد في الدنيا، لكن المؤمنون يرونه في الآخرة.", source:"صحيح مسلم", category:"عقيدة", points:10},
+            {id:13, question:"ما حكم الاحتفال بالمولد النبوي؟", options:["سنة","بدعة","مباح"], correct:1, explanation:"الاحتفال بالمولد النبوي بدعة محدثة.", source:"فتاوى اللجنة الدائمة", category:"عقيدة", points:10},
+            {id:14, question:"ما معنى 'الإيمان' عند أهل السنة؟", options:["قول فقط","اعتقاد فقط","قول وعمل واعتقاد"], correct:2, explanation:"الإيمان قول واعتقاد وعمل، يزيد بالطاعة وينقص بالمعصية.", source:"شرح الطحاوية", category:"عقيدة", points:10},
+            {id:15, question:"ما حكم تعليق التمائم؟", options:["مباح","شرك أصغر","شرك أكبر"], correct:1, explanation:"تعليق التمائم التي ليس فيها قرآن شرك أصغر.", source:"فتاوى ابن عثيمين", category:"عقيدة", points:10},
+            {id:16, question:"هل الله معنا بذاته؟", options:["نعم","لا، بل بعلمه","في بعض الأحيان"], correct:1, explanation:"الله معنا بعلمه وسمعه وبصره، وهو فوق العرش بذاته.", source:"تفسير ابن كثير", category:"عقيدة", points:10},
+            {id:17, question:"ما حكم الاستسقاء بالأنواء؟", options:["جائز","شرك أصغر","بدعة"], correct:1, explanation:"الاستسقاء بالأنواء شرك أصغر.", source:"فتاوى ابن باز", category:"عقيدة", points:10},
+            {id:18, question:"ما هي النواقض العشرة للإسلام؟", options:["ذكره العلماء في كتبهم","موجودة في القرآن فقط","لا يوجد عدد محدد"], correct:0, explanation:"ذكرها العلماء مثل الشيخ محمد بن عبد الوهاب.", source:"نواقض الإسلام", category:"عقيدة", points:10},
+            {id:19, question:"ما حكم السحر؟", options:["كفر","معصية","بدعة"], correct:0, explanation:"السحر كفر، والساحر كافر يجب قتله.", source:"سورة البقرة آية 102", category:"عقيدة", points:10},
+            {id:20, question:"هل الإيمان بالقدر نفي للإرادة؟", options:["نعم","لا","في بعض الأحيان"], correct:1, explanation:"الإيمان بالقدر لا ينفي الإرادة، فالعبد مختار مريد.", source:"شرح الطحاوية", category:"عقيدة", points:10},
+            {id:21, question:"ما حكم من أنكر المعجزات؟", options:["مخطئ","كافر","مبتدع"], correct:1, explanation:"من أنكر معجزة ثابتة في القرآن أو السنة فقد كفر.", source:"فتاوى اللجنة الدائمة", category:"عقيدة", points:10},
+            {id:22, question:"ما هو 'التعطيل'؟", options:["ترك الصلاة","إنكار صفات الله","عدم الصوم"], correct:1, explanation:"هو إنكار صفات الله، من أقوال الجهمية.", source:"درء تعارض العقل والنقل", category:"عقيدة", points:10},
+            {id:23, question:"ما حكم 'التشاؤم'؟", options:["جائز","مكروه","حرام"], correct:2, explanation:"التشاؤم حرام وهو من الطيرة.", source:"صحيح البخاري", category:"عقيدة", points:10},
+            {id:24, question:"ما هي 'الوسيلة' المشروعة؟", options:["التوسل بجاه النبي","الدعاء بأسماء الله","الذبح للقبور"], correct:1, explanation:"التوسل المشروع هو بأسماء الله وصفاته.", source:"القول المفيد", category:"عقيدة", points:10},
+            {id:25, question:"ما حكم الاستهزاء بالدين؟", options:["معصية","كفر أكبر","بدعة"], correct:1, explanation:"من استهزأ بالله أو رسوله أو دينه فقد كفر.", source:"سورة التوبة", category:"عقيدة", points:10},
+            {id:26, question:"ما معنى 'الطاغوت'؟", options:["الشيطان فقط","كل ما عبد من دون الله","الأصنام فقط"], correct:1, explanation:"الطاغوت كل ما عبد من دون الله وهو راض.", source:"تفسير السعدي", category:"عقيدة", points:10},
+            {id:27, question:"ما حكم زيارة القبور للنساء؟", options:["جائزة","مكروهة","محرمة"], correct:2, explanation:"زيارة القبور للنساء محرمة.", source:"سنن الترمذي", category:"عقيدة", points:10},
+            {id:28, question:"ما هو 'الشرك الخفي'؟", options:["الرياء","دعاء الأموات","الذبح لغير الله"], correct:0, explanation:"الرياء شرك خفي.", source:"رياض الصالحين", category:"عقيدة", points:10},
+            {id:29, question:"ما حكم من كفر مسلماً بغير حق؟", options:["مخطئ","كافر","عاصٍ"], correct:1, explanation:"من كفر مسلماً بغير حق فقد كفر.", source:"صحيح البخاري", category:"عقيدة", points:10},
+            {id:30, question:"هل يجوز التكفير بالمعاصي؟", options:["نعم","لا","في الكبائر فقط"], correct:1, explanation:"لا يجوز التكفير بالمعاصي إلا إذا استحلها.", source:"فتاوى ابن عثيمين", category:"عقيدة", points:10},
+            {id:31, question:"ما حكم 'التنجيم'؟", options:["جائز","حرام","مكروه"], correct:1, explanation:"التنجيم حرام، من الكهانة المحرمة.", source:"فتاوى اللجنة الدائمة", category:"عقيدة", points:10},
+            {id:32, question:"ما هي علامات الساعة الصغرى؟", options:["خروج الدجال","انتشار الفتن","نزول عيسى"], correct:1, explanation:"من علامات الساعة الصغرى انتشار الفتن.", source:"صحيح مسلم", category:"عقيدة", points:10},
+            {id:33, question:"ما حكم الإيمان بالجن؟", options:["واجب","مستحب","جائز"], correct:0, explanation:"الإيمان بالجن واجب، لأنهم مخلوقون من النار.", source:"سورة الرحمن", category:"عقيدة", points:10},
+            {id:34, question:"هل العذاب في القبر حقيقي؟", options:["نعم","لا","روحي فقط"], correct:0, explanation:"العذاب في القبر حقيقي يسمعه الأحياء.", source:"صحيح البخاري", category:"عقيدة", points:10},
+            {id:35, question:"ما حكم 'التمائم' التي فيها قرآن؟", options:["جائزة","بدعة","شرك أصغر"], correct:1, explanation:"التمائم التي فيها قرآن بدعة.", source:"فتاوى ابن باز", category:"عقيدة", points:10},
+            {id:36, question:"ما هو 'التكفير' المحرم؟", options:["تكفير الكافر","تكفير المسلم بلا دليل","تكفير أهل البدع"], correct:1, explanation:"تكفير المسلم المعين بلا دليل محرم.", source:"شرح الطحاوية", category:"عقيدة", points:10},
+            {id:37, question:"من هم 'الخوارج'؟", options:["المجاهدون","الذين يكفرون المسلمين","الصوفية"], correct:1, explanation:"الخوارج هم الذين يكفرون المسلمين بالذنوب.", source:"صحيح البخاري", category:"عقيدة", points:10},
+            {id:38, question:"ما حكم 'التصوير' ذي الأرواح؟", options:["جائز","مكروه","حرام"], correct:2, explanation:"تصوير ذوات الأرواح حرام.", source:"صحيح البخاري", category:"عقيدة", points:10},
+            {id:39, question:"ما هي 'البدعة الإضافية'؟", options:["ما لها أصل في الشرع","ما ليس لها أصل","العبادة المطلقة"], correct:0, explanation:"البدعة الإضافية ما لها أصل في الشرع لكن زيد فيها.", source:"الاعتصام", category:"عقيدة", points:10},
+            {id:40, question:"ما حكم 'النياحة' على الميت؟", options:["جائزة","مكروهة","محرمة"], correct:2, explanation:"النياحة على الميت محرمة.", source:"صحيح البخاري", category:"عقيدة", points:10},
+
+            // الفقه - 35 سؤالاً
+            {id:41, question:"ما هي أركان الإسلام؟", options:["الشهادتان، الصلاة، الزكاة، الصوم، الحج","الإيمان، الإسلام، الإحسان","الطهارة، الصلاة، الصيام"], correct:0, explanation:"أركان الإسلام خمسة كما في حديث جبريل.", source:"صحيح البخاري", category:"فقه", points:10},
+            {id:42, question:"ما أقل مدة الحيض؟", options:["يوم وليلة","ثلاثة أيام","لا حد لأقلها"], correct:0, explanation:"أقل مدة الحيض يوم وليلة، وأكثرها خمسة عشر يوماً.", source:"المغني", category:"فقه", points:10},
+            {id:43, question:"ما حكم صلاة الجماعة للرجل؟", options:["سنة مؤكدة","واجبة","فرض كفاية"], correct:1, explanation:"صلاة الجماعة واجبة على الرجال القادرين.", source:"فتاوى ابن عثيمين", category:"فقه", points:10},
+            {id:44, question:"ما هي نواقض الوضوء؟", options:["الخروج من السبيلين والنوم","الأكل والشرب","الكلام في الصلاة"], correct:0, explanation:"من نواقض الوضوء: الخارج من السبيلين، والنوم الثقيل.", source:"الشرح الممتع", category:"فقه", points:10},
+            {id:45, question:"ما حكم تأخير الصلاة عن وقتها؟", options:["مكروه","حرام","جائز للضرورة"], correct:1, explanation:"تأخير الصلاة عن وقتها بلا عذر من كبائر الذنوب.", source:"المجموع", category:"فقه", points:10},
+            {id:46, question:"ما هي شروط وجوب الحج؟", options:["المال فقط","الإسلام والبلوغ والعقل والاستطاعة","وجود المحرم للمرأة فقط"], correct:1, explanation:"شروط وجوب الحج: الإسلام، العقل، البلوغ، الاستطاعة.", source:"منار السبيل", category:"فقه", points:10},
+            {id:47, question:"ما حكم الربا؟", options:["مكروه","حرام","جائز في الضرورة"], correct:1, explanation:"الربا من كبائر الذنوب، وقد حرمه الله.", source:"سورة البقرة", category:"فقه", points:10},
+            {id:48, question:"ما حكم الاحتفال بالمولد النبوي؟", options:["سنة","بدعة","مباح"], correct:1, explanation:"الاحتفال بالمولد النبوي بدعة محدثة.", source:"فتاوى اللجنة الدائمة", category:"فقه", points:10},
+            {id:49, question:"ما حكم التصوير ذوات الأرواح؟", options:["مكروه","حرام","جائز للضرورة"], correct:1, explanation:"تصوير ذوات الأرواح حرام.", source:"صحيح البخاري", category:"فقه", points:10},
+            {id:50, question:"ما حكم الموسيقى والغناء؟", options:["مباح","مكروه","حرام"], correct:2, explanation:"الموسيقى والغناء المحرم حرام بالإجماع.", source:"إغاثة اللهفان", category:"فقه", points:10},
+            {id:51, question:"ما حكم الصلاة في المسجد الذي فيه قبر؟", options:["جائزة","مكروهة","لا تجوز"], correct:2, explanation:"لا تجوز الصلاة في المسجد الذي فيه قبر.", source:"فتاوى ابن باز", category:"فقه", points:10},
+            {id:52, question:"ما حكم ترك الصلاة عمداً؟", options:["كبيرة","كفر أكبر","معصية"], correct:1, explanation:"من ترك الصلاة جحوداً أو تكاسلاً كفر.", source:"مجموع فتاوى ابن تيمية", category:"فقه", points:10},
+            {id:53, question:"ما هي مفسدات الصيام؟", options:["الأكل والشرب عمداً","الغيبة","الضحك"], correct:0, explanation:"من مفسدات الصيام: الأكل والشرب عمداً، والجماع.", source:"الشرح الممتع", category:"فقه", points:10},
+            {id:54, question:"ما حكم زكاة الفطر؟", options:["سنة","واجبة","مباحة"], correct:1, explanation:"زكاة الفطر واجبة على كل مسلم.", source:"صحيح البخاري", category:"فقه", points:10},
+            {id:55, question:"ما حكم الصلاة في الثوب الحرير للرجال؟", options:["جائز","مكروه","حرام"], correct:2, explanation:"حرام على الرجال لبس الحرير.", source:"صحيح البخاري", category:"فقه", points:10},
+            {id:56, question:"ما حكم التبرج والسفور؟", options:["مباح","مكروه","حرام"], correct:2, explanation:"التبرج والسفور حرام، من كبائر الذنوب.", source:"سورة النور", category:"فقه", points:10},
+            {id:57, question:"ما حكم مصافحة المرأة الأجنبية؟", options:["جائزة","مكروهة","حرام"], correct:2, explanation:"مصافحة المرأة الأجنبية حرام.", source:"سنن الترمذي", category:"فقه", points:10},
+            {id:58, question:"ما حكم الخلوة بالأجنبية؟", options:["جائزة","مكروهة","حرام"], correct:2, explanation:"الخلوة بالأجنبية حرام.", source:"صحيح البخاري", category:"فقه", points:10},
+            {id:59, question:"ما حكم التدخين؟", options:["مكروه","حرام","مباح"], correct:1, explanation:"التدخين حرام، إتلاف للنفس وإضاعة للمال.", source:"فتاوى اللجنة الدائمة", category:"فقه", points:10},
+            {id:60, question:"ما حكم الاختلاط في المدارس؟", options:["جائز","مكروه","حرام"], correct:2, explanation:"الاختلاط بين الرجال والنساء حرام.", source:"فتاوى ابن باز", category:"فقه", points:10},
+            {id:61, question:"ما حكم التطير؟", options:["جائز","حرام","مكروه"], correct:1, explanation:"التطير حرام، من الشرك الأصغر.", source:"صحيح البخاري", category:"فقه", points:10},
+            {id:62, question:"ما حكم الحجاب الشرعي؟", options:["سنة","واجب","مستحب"], correct:1, explanation:"الحجاب واجب على كل مسلمة بالغة.", source:"سورة النور", category:"فقه", points:10},
+            {id:63, question:"ما حكم تارك الزكاة؟", options:["عاصٍ","كافر","فاسق"], correct:1, explanation:"من منع الزكاة جحوداً كفر.", source:"صحيح البخاري", category:"فقه", points:10},
+            {id:64, question:"ما حكم الصلاة خلف المبتدع؟", options:["جائزة","لا تجوز","في الضرورة فقط"], correct:0, explanation:"تجوز الصلاة خلف المبتدع إذا كانت بدعته لا تخرجه من الإسلام.", source:"مجموع فتاوى ابن عثيمين", category:"فقه", points:10},
+            {id:65, question:"ما حكم العمل في البنوك الربوية؟", options:["جائز","حرام","مكروه"], correct:1, explanation:"العمل في البنوك الربوية حرام.", source:"فتاوى اللجنة الدائمة", category:"فقه", points:10},
+            {id:66, question:"ما حكم التصوير الفوتوغرافي؟", options:["جائز للضرورة","حرام مطلقاً","مباح"], correct:0, explanation:"يجوز للضرورة كالأوراق الرسمية.", source:"فتاوى ابن عثيمين", category:"فقه", points:10},
+            {id:67, question:"ما حكم مشاهدة الأفلام الخليعة؟", options:["مباح","مكروه","حرام"], correct:2, explanation:"مشاهدة الأفلام الخليعة حرام.", source:"سورة النور", category:"فقه", points:10},
+            {id:68, question:"ما حكم الاستمناء؟", options:["مباح","مكروه","حرام"], correct:2, explanation:"الاستمناء حرام إلا عند الخوف على النفس من الزنا.", source:"فتاوى ابن باز", category:"فقه", points:10},
+            {id:69, question:"ما حكم الوشم؟", options:["مباح","مكروه","حرام"], correct:2, explanation:"الوشم حرام.", source:"صحيح البخاري", category:"فقه", points:10},
+            {id:70, question:"ما حكم النميمة؟", options:["مباحة","مكروهة","حرام"], correct:2, explanation:"النميمة حرام، من كبائر الذنوب.", source:"سورة القلم", category:"فقه", points:10},
+            {id:71, question:"ما حكم الغيبة؟", options:["مباحة","مكروهة","حرام"], correct:2, explanation:"الغيبة حرام، أكل لحم الأخ ميتاً.", source:"سورة الحجرات", category:"فقه", points:10},
+            {id:72, question:"ما حكم الكذب؟", options:["مباح للضرورة","حرام","مكروه"], correct:1, explanation:"الكذب حرام إلا في حالات الضرورة.", source:"صحيح البخاري", category:"فقه", points:10},
+            {id:73, question:"ما حكم شهادة الزور؟", options:["كبيرة","كفر","معصية"], correct:0, explanation:"شهادة الزور من كبائر الذنوب.", source:"سورة الفرقان", category:"فقه", points:10},
+            {id:74, question:"ما حكم عقوق الوالدين؟", options:["معصية","كبيرة","كفر"], correct:1, explanation:"عقوق الوالدين من كبائر الذنوب.", source:"صحيح البخاري", category:"فقه", points:10},
+            {id:75, question:"ما حكم قطع الرحم؟", options:["معصية","كبيرة","كفر"], correct:1, explanation:"قطع الرحم من كبائر الذنوب.", source:"صحيح البخاري", category:"فقه", points:10},
+
+            // السيرة - 25 سؤالاً
+            {id:76, question:"كم كان عمر النبي ﷺ عند البعثة؟", options:["25 سنة","40 سنة","35 سنة"], correct:1, explanation:"بعث النبي ﷺ وعمره أربعون سنة.", source:"سيرة ابن هشام", category:"سيرة", points:10},
+            {id:77, question:"من أول من آمن بالنبي ﷺ من الرجال؟", options:["علي بن أبي طالب","أبو بكر الصديق","زيد بن حارثة"], correct:1, explanation:"أبو بكر الصديق أول من آمن من الرجال.", source:"البداية والنهاية", category:"سيرة", points:10},
+            {id:78, question:"كم استمرت الدعوة في مكة؟", options:["10 سنوات","13 سنة","15 سنة"], correct:1, explanation:"استمرت الدعوة في مكة ثلاث عشرة سنة.", source:"زاد المعاد", category:"سيرة", points:10},
+            {id:79, question:"ما هي أول غزوة للنبي ﷺ؟", options:["بدر","أحد","الأبواء (ودان)"], correct:2, explanation:"أول غزوة غزاها النبي ﷺ غزوة الأبواء.", source:"السيرة النبوية", category:"سيرة", points:10},
+            {id:80, question:"من هو 'سيف الله المسلول'؟", options:["عمر بن الخطاب","خالد بن الوليد","علي بن أبي طالب"], correct:1, explanation:"خالد بن الوليد سيف الله المسلول.", source:"صحيح البخاري", category:"سيرة", points:10},
+            {id:81, question:"كم عدد غزوات النبي ﷺ؟", options:["19 غزوة","27 غزوة","9 غزوات"], correct:1, explanation:"غزا النبي ﷺ سبعاً وعشرين غزوة.", source:"زاد المعاد", category:"سيرة", points:10},
+            {id:82, question:"من هي 'أم المؤمنين' التي توفيت آخراً؟", options:["عائشة","حفصة","أم سلمة"], correct:0, explanation:"عائشة توفيت آخر زوجات النبي.", source:"سير أعلام النبلاء", category:"سيرة", points:10},
+            {id:83, question:"كم كان عمر النبي ﷺ عند وفاته؟", options:["60 سنة","63 سنة","65 سنة"], correct:1, explanation:"توفي النبي ﷺ وعمره ثلاث وستون سنة.", source:"صحيح البخاري", category:"سيرة", points:10},
+            {id:84, question:"من هو 'ترجمان القرآن'؟", options:["عبد الله بن عباس","عبد الله بن مسعود","معاذ بن جبل"], correct:1, explanation:"عبد الله بن مسعود ترجمان القرآن.", source:"سير أعلام النبلاء", category:"سيرة", points:10},
+            {id:85, question:"من هو 'حبر الأمة'؟", options:["عبد الله بن عباس","أبي بن كعب","زيد بن ثابت"], correct:0, explanation:"عبد الله بن عباس حبر الأمة.", source:"سير أعلام النبلاء", category:"سيرة", points:10},
+            {id:86, question:"من الصحابي الذي اهتز لموته عرش الرحمن؟", options:["عمر بن الخطاب","عثمان بن عفان","سعد بن معاذ"], correct:2, explanation:"سعد بن معاذ اهتز لموته عرش الرحمن.", source:"صحيح البخاري", category:"سيرة", points:10},
+            {id:87, question:"من هو 'ذي النورين'؟", options:["عثمان بن عفان","طلحة بن عبيد الله","الزبير بن العوام"], correct:0, explanation:"عثمان بن عفان ذو النورين.", source:"سير أعلام النبلاء", category:"سيرة", points:10},
+            {id:88, question:"من هي أول شهيدة في الإسلام؟", options:["سمية بنت خياط","سودة بنت زمعة","حفصة بنت عمر"], correct:0, explanation:"سمية بنت خياط أول شهيدة في الإسلام.", source:"الاستيعاب", category:"سيرة", points:10},
+            {id:89, question:"من هو 'أبو التراب'؟", options:["علي بن أبي طالب","العباس بن عبد المطلب","حمزة بن عبد المطلب"], correct:0, explanation:"علي بن أبي طالب أبو التراب.", source:"صحيح البخاري", category:"سيرة", points:10},
+            {id:90, question:"كم عدد أبناء النبي ﷺ؟", options:["ثلاثة أبناء وأربع بنات","أربعة أبناء وثلاث بنات","ولدين وبنتين"], correct:0, explanation:"كان للنبي ثلاثة أبناء وأربع بنات.", source:"سيرة ابن هشام", category:"سيرة", points:10},
+            {id:91, question:"من هي آخر زوجات النبي ﷺ موتاً؟", options:["عائشة","حفصة","أم سلمة"], correct:0, explanation:"عائشة توفيت سنة 58 هـ.", source:"سير أعلام النبلاء", category:"سيرة", points:10},
+            {id:92, question:"من هو 'فاروق الأمة'؟", options:["أبو بكر الصديق","عمر بن الخطاب","عثمان بن عفان"], correct:1, explanation:"عمر بن الخطاب فاروق الأمة.", source:"سير أعلام النبلاء", category:"سيرة", points:10},
+            {id:93, question:"من هو كاتب وحي النبي ﷺ؟", options:["زيد بن ثابت","معاوية بن أبي سفيان","كلاهما"], correct:2, explanation:"زيد ومعاوية من كتاب الوحي.", source:"سير أعلام النبلاء", category:"سيرة", points:10},
+            {id:94, question:"من هو الصحابي الذي بشره النبي ﷺ بالجنة؟", options:["عشرة","سبعة","أربعة"], correct:0, explanation:"العشرة المبشرون بالجنة.", source:"سنن الترمذي", category:"سيرة", points:10},
+            {id:95, question:"من هي 'ذات النطاقين'؟", options:["أسماء بنت أبي بكر","فاطمة الزهراء","خديجة بنت خويلد"], correct:0, explanation:"أسماء بنت أبي بكر ذات النطاقين.", source:"صحيح البخاري", category:"سيرة", points:10},
+            {id:96, question:"من هو 'أسد الله'؟", options:["حمزة بن عبد المطلب","علي بن أبي طالب","خالد بن الوليد"], correct:0, explanation:"حمزة بن عبد المطلب أسد الله.", source:"سير أعلام النبلاء", category:"سيرة", points:10},
+            {id:97, question:"من هو أول مولود في الإسلام بعد الهجرة؟", options:["عبد الله بن الزبير","محمد بن أبي بكر","الحسن بن علي"], correct:0, explanation:"عبد الله بن الزبير أول مولود بعد الهجرة.", source:"سير أعلام النبلاء", category:"سيرة", points:10},
+            {id:98, question:"من هو خاتم الأنبياء والمرسلين؟", options:["محمد ﷺ","عيسى عليه السلام","موسى عليه السلام"], correct:0, explanation:"النبي محمد ﷺ خاتم الأنبياء.", source:"سورة الأحزاب", category:"سيرة", points:10},
+            {id:99, question:"كم عدد الخلفاء الراشدين؟", options:["أربعة","خمسة","ستة"], correct:0, explanation:"الخلفاء الراشدون أربعة.", source:"سنن الترمذي", category:"سيرة", points:10},
+            {id:100, question:"من هو 'الصديق'؟", options:["أبو بكر الصديق","عمر بن الخطاب","عثمان بن عفان"], correct:0, explanation:"أبو بكر الصديق.", source:"صحيح البخاري", category:"سيرة", points:10},
+
+            // رد الشبهات - 20 سؤالاً
+            {id:101, question:"ما هو أصل بدعة الجهمية؟", options:["إنكار أسماء الله وصفاته","إنكار القدر","إنكار الشفاعة"], correct:0, explanation:"أصل بدعتهم تعطيل أسماء الله وصفاتها.", source:"الرد على الجهمية", category:"رد شبهات", points:15},
+            {id:102, question:"ما حكم من يقول: القرآن مخلوق؟", options:["مبتدع","كافر","مجتهد مخطئ"], correct:1, explanation:"من قال القرآن مخلوق فقد كفر.", source:"الرد على الجهمية", category:"رد شبهات", points:15},
+            {id:103, question:"ما حقيقة التصوف المبتدع؟", options:["الزهد المشروع","بدعة في الدين","طريقة للترقي الروحي"], correct:1, explanation:"التصوف المبتدع يدخل فيه الشركيات والبدع.", source:"مختصر منهاج السنة", category:"رد شبهات", points:15},
+            {id:104, question:"ما حكم دعاء الأموات والاستغاثة بهم؟", options:["شرك أكبر","شرك أصغر","بدعة"], correct:0, explanation:"دعاء الأموات شرك أكبر مخرج من الملة.", source:"فتاوى ابن باز", category:"رد شبهات", points:15},
+            {id:105, question:"ما الرد على من أنكر علو الله على خلقه؟", options:["قول الله: {الرَّحْمَنُ عَلَى الْعَرْشِ اسْتَوَى}","الأدلة العقلية","إجماع العلماء"], correct:0, explanation:"نصوص الكتاب والسنة متواترة على علو الله.", source:"سورة طه", category:"رد شبهات", points:15},
+            {id:106, question:"ما حكم الاحتفال بالموالد؟", options:["سنة","بدعة","عادة"], correct:1, explanation:"الاحتفال بالموالد بدعة محدثة.", source:"فتاوى اللجنة الدائمة", category:"رد شبهات", points:15},
+            {id:107, question:"ما الرد على من يقول بوحدة الوجود؟", options:["أن الله ليس عين خلقه","أنه قول الفلاسفة","أنه يحتاج إلى تأويل"], correct:0, explanation:"وحدة الوجود كفر صريح.", source:"درء تعارض العقل والنقل", category:"رد شبهات", points:15},
+            {id:108, question:"ما حكم الطواف على القبور؟", options:["شرك أكبر","بدعة","جائز للتبرك"], correct:0, explanation:"الطواف على القبور شرك أكبر.", source:"فتاوى ابن باز", category:"رد شبهات", points:15},
+            {id:109, question:"ما الرد على من أنكر رؤية المؤمنين لربهم؟", options:["قول الله: {وُجُوهٌ يَوْمَئِذٍ نَّاضِرَةٌ إِلَىٰ رَبِّهَا نَاظِرَةٌ}","الأحاديث الضعيفة","الإجماع فقط"], correct:0, explanation:"رؤية المؤمنين لربهم ثابتة بنصوص الكتاب والسنة.", source:"سورة القيامة", category:"رد شبهات", points:15},
+            {id:110, question:"ما حكم التوسل بجاه النبي ﷺ؟", options:["سنة","بدعة","جائز"], correct:1, explanation:"التوسل بجاه النبي بدعة.", source:"القول المفيد", category:"رد شبهات", points:15},
+            {id:111, question:"ما الرد على من يقول: الله في كل مكان؟", options:["أن الله فوق العرش","أنه تفسير باطني","أنه يحتاج إلى تأويل"], correct:0, explanation:"الله فوق السماوات على العرش.", source:"العقيدة الطحاوية", category:"رد شبهات", points:15},
+            {id:112, question:"ما حكم بناء المساجد على القبور؟", options:["جائز","بدعة","شرك"], correct:1, explanation:"بناء المساجد على القبور بدعة محرمة.", source:"صحيح مسلم", category:"رد شبهات", points:15},
+            {id:113, question:"ما الرد على المرجئة؟", options:["أن الإيمان قول وعمل","أن الإيمان قول فقط","أن العمل شرط كمال"], correct:0, explanation:"الإيمان عند أهل السنة قول وعمل واعتقاد.", source:"شرح الطحاوية", category:"رد شبهات", points:15},
+            {id:114, question:"ما حكم الاحتفال بعيد الأم؟", options:["سنة","بدعة","عادة"], correct:1, explanation:"الاحتفال بعيد الأم بدعة.", source:"فتاوى اللجنة الدائمة", category:"رد شبهات", points:15},
+            {id:115, question:"ما الرد على المعتزلة في إنكارهم لرؤية الله؟", options:["نصوص الرؤية في الكتاب والسنة","الأدلة العقلية","إجماع الصحابة"], correct:0, explanation:"رؤية الله ثابتة بنصوص الكتاب والسنة.", source:"سورة القيامة", category:"رد شبهات", points:15},
+            {id:116, question:"ما حكم التبرك بالقبور والأضرحة؟", options:["شرك أكبر","بدعة","جائز"], correct:0, explanation:"التبرك بالقبور والأضرحة شرك أكبر.", source:"فتاوى ابن باز", category:"رد شبهات", points:15},
+            {id:117, question:"ما الرد على من أنكر نزول الله إلى السماء الدنيا؟", options:["أحاديث النزول الصحيحة","أنه مجاز","أنه خاص بالملائكة"], correct:0, explanation:"نزول الله إلى السماء الدنيا ثابت بالأحاديث.", source:"صحيح البخاري", category:"رد شبهات", points:15},
+            {id:118, question:"ما حكم الذبح عند القبور؟", options:["شرك أكبر","بدعة","جائز للفقراء"], correct:0, explanation:"الذبح عند القبور شرك أكبر.", source:"فتاوى اللجنة الدائمة", category:"رد شبهات", points:15},
+            {id:119, question:"ما الرد على من يقول بتعطيل الصفات؟", options:["إثبات الصفات كما جاءت","تأويل الصفات","تفويض معانيها"], correct:0, explanation:"يجب إثبات الصفات كما جاءت.", source:"العقيدة الواسطية", category:"رد شبهات", points:15},
+            {id:120, question:"ما حكم الاحتفال برأس السنة الهجرية؟", options:["سنة","بدعة","عادة"], correct:1, explanation:"الاحتفال برأس السنة الهجرية بدعة.", source:"فتاوى ابن عثيمين", category:"رد شبهات", points:15}
+        ];
+
+        // ===== APP LOGIC =====
         const app = {
-            // App State
             score: 0,
             currentQuestionIndex: 0,
             timer: null,
@@ -1184,452 +977,13 @@
             correctAnswers: 0,
             startTime: null,
             shuffledQuestions: [],
-            hasProgress: false,
             soundEnabled: true,
             
-            // User Stats
-            userStats: {
-                bestScore: 0,
-                totalPlayed: 0,
-                totalCorrect: 0,
-                totalTime: 0,
-                lastPlayed: null
-            },
-            
-            // Sound Elements
-            sounds: {
-                correct: null,
-                wrong: null,
-                complete: null,
-                timer: null
-            },
-            
-            // Questions Database (120 questions)
-            questions: [
-                // ===== SECTION 1: AQEEDAH (40 questions) =====
-                {
-                    id: 1,
-                    question: "ما هو أعظم ما أمر الله به؟",
-                    options: ["الصلاة", "التوحيد", "الجهاد"],
-                    correct: 1,
-                    explanation: "التوحيد هو أعظم ما أمر الله به، وهو أول واجب على العبد وآخر واجب، وهو حق الله على العباد.",
-                    source: "شرح ثلاثة الأصول لابن عثيمين",
-                    category: "عقيدة",
-                    points: 10
-                },
-                {
-                    id: 2,
-                    question: "ما معنى 'لا إله إلا الله'؟",
-                    options: ["لا خالق إلا الله", "لا معبود بحق إلا الله", "لا رازق إلا الله"],
-                    correct: 1,
-                    explanation: "معناها نفي الألوهية عن كل ما سوى الله وإثباتها لله وحده، فلا يستحق العبادة أحد سواه.",
-                    source: "كتاب التوحيد لابن خزيمة",
-                    category: "عقيدة",
-                    points: 10
-                },
-                {
-                    id: 3,
-                    question: "أين الله عز وجل؟",
-                    options: ["في كل مكان", "في السماء على العرش", "لا مكان له"],
-                    correct: 1,
-                    explanation: "الله فوق السماوات على العرش استوى، كما قال تعالى: {الرَّحْمَنُ عَلَى الْعَرْشِ اسْتَوَى}.",
-                    source: "سورة طه آية 5",
-                    category: "عقيدة",
-                    points: 10
-                },
-                {
-                    id: 4,
-                    question: "ما حكم من ذبح لغير الله؟",
-                    options: ["شرك أكبر", "شرك أصغر", "بدعة"],
-                    correct: 0,
-                    explanation: "الذبح لغير الله شرك أكبر مخرج من الملة، لأنه من العبادات التي لا تصرف إلا لله.",
-                    source: "فتاوى ابن باز (9/174)",
-                    category: "عقيدة",
-                    points: 10
-                },
-                {
-                    id: 5,
-                    question: "من هم السلف الصالح؟",
-                    options: ["الصحابة فقط", "التابعون فقط", "الصحابة والتابعون وأتباعهم"],
-                    correct: 2,
-                    explanation: "هم القرون الثلاثة المفضلة: الصحابة، ثم التابعون، ثم تابعو التابعين.",
-                    source: "صحيح البخاري حديث رقم 2652",
-                    category: "عقيدة",
-                    points: 10
-                },
-                {
-                    id: 6,
-                    question: "ما موقف أهل السنة من أسماء الله وصفاته؟",
-                    options: ["تأويلها", "إثباتها دون تكييف", "تفويض معناها"],
-                    correct: 1,
-                    explanation: "يؤمنون بها كما جاءت من غير تحريف ولا تعطيل ولا تكييف ولا تمثيل.",
-                    source: "العقيدة الطحاوية",
-                    category: "عقيدة",
-                    points: 10
-                },
-                {
-                    id: 7,
-                    question: "ما هو الشرك الأصغر؟",
-                    options: ["الرياء", "دعاء الأموات", "الذبح للقبور"],
-                    correct: 0,
-                    explanation: "كالرياء والحلف بغير الله، وهو كبيرة من الكبائر ولكنه لا يخرج من الملة.",
-                    source: "كتاب التوحيد لابن خزيمة",
-                    category: "عقيدة",
-                    points: 10
-                },
-                {
-                    id: 8,
-                    question: "هل القرآن مخلوق؟",
-                    options: ["نعم", "لا، كلام الله غير مخلوق", "بعضه مخلوق"],
-                    correct: 1,
-                    explanation: "القرآن كلام الله منزل غير مخلوق، بدأ منه وإليه يعود.",
-                    source: "العقيدة الواسطية لابن تيمية",
-                    category: "عقيدة",
-                    points: 10
-                },
-                {
-                    id: 9,
-                    question: "ما حكم سب الصحابة؟",
-                    options: ["معصية", "بدعة", "كفر في بعض الأحيان"],
-                    correct: 2,
-                    explanation: "سب الصحابة طعن في الدين، ومن سبهم فقد كفر لأنهم نقلة الدين.",
-                    source: "فتاوى اللجنة الدائمة (2/438)",
-                    category: "عقيدة",
-                    points: 10
-                },
-                {
-                    id: 10,
-                    question: "ما هي البدعة في الدين؟",
-                    options: ["كل جديد", "ما أحدث على خلاف السنة", "الاجتهاد في العبادة"],
-                    correct: 1,
-                    explanation: "هي طريقة في الدين مخترعة تضاهي الشريعة، يقصد بها التعبد لله.",
-                    source: "اعتصام للشاطبي",
-                    category: "عقيدة",
-                    points: 10
-                },
-                // ... More Aqeedah questions up to 40
-
-                // ===== SECTION 2: FIQH (35 questions) =====
-                {
-                    id: 41,
-                    question: "ما هي أركان الإسلام؟",
-                    options: [
-                        "الشهادتان، الصلاة، الزكاة، الصوم، الحج",
-                        "الإيمان، الإسلام، الإحسان",
-                        "الطهارة، الصلاة، الصيام، الزكاة"
-                    ],
-                    correct: 0,
-                    explanation: "أركان الإسلام خمسة كما في حديث جبريل: الشهادتان، إقام الصلاة، إيتاء الزكاة، صوم رمضان، حج البيت.",
-                    source: "صحيح البخاري حديث رقم 8",
-                    category: "فقه",
-                    points: 10
-                },
-                {
-                    id: 42,
-                    question: "ما أقل مدة الحيض؟",
-                    options: ["يوم وليلة", "ثلاثة أيام", "لا حد لأقلها"],
-                    correct: 0,
-                    explanation: "أقل مدة الحيض يوم وليلة، وأكثره خمسة عشر يوماً.",
-                    source: "المغني لابن قدامة (1/413)",
-                    category: "فقه",
-                    points: 10
-                },
-                {
-                    id: 43,
-                    question: "ما حكم صلاة الجماعة للرجل؟",
-                    options: ["سنة", "واجبة", "فرض كفاية"],
-                    correct: 1,
-                    explanation: "صلاة الجماعة واجبة على الرجال القادرين بلا عذر.",
-                    source: "فتاوى ابن عثيمين (12/239)",
-                    category: "فقه",
-                    points: 10
-                },
-                {
-                    id: 44,
-                    question: "ما هي نواقض الوضوء؟",
-                    options: [
-                        "الخروج من السبيلين والنوم",
-                        "الأكل والشرب",
-                        "الكلام في الصلاة"
-                    ],
-                    correct: 0,
-                    explanation: "من نواقض الوضوء: الخارج من السبيلين، والنوم الثقيل، والجنون، والإغماء.",
-                    source: "الشرح الممتع لابن عثيمين (1/289)",
-                    category: "فقه",
-                    points: 10
-                },
-                {
-                    id: 45,
-                    question: "ما حكم تأخير الصلاة عن وقتها؟",
-                    options: ["مكروه", "حرام", "جائز للضرورة"],
-                    correct: 1,
-                    explanation: "تأخير الصلاة عن وقتها بلا عذر من كبائر الذنوب.",
-                    source: "المجموع للنووي (3/70)",
-                    category: "فقه",
-                    points: 10
-                },
-                {
-                    id: 46,
-                    question: "ما هي شروط وجوب الحج؟",
-                    options: [
-                        "المال فقط",
-                        "الإسلام والبلوغ والعقل والاستطاعة",
-                        "وجود المحرم للمرأة فقط"
-                    ],
-                    correct: 1,
-                    explanation: "شروط وجوب الحج: الإسلام، العقل، البلوغ، الحرية، الاستطاعة.",
-                    source: "منار السبيل لابن ضويان",
-                    category: "فقه",
-                    points: 10
-                },
-                {
-                    id: 47,
-                    question: "ما حكم الربا؟",
-                    options: ["مكروه", "حرام", "جائز في الضرورة"],
-                    correct: 1,
-                    explanation: "الربا من كبائر الذنوب، وقد حرمه الله في كتابه ورسوله في سنته.",
-                    source: "سورة البقرة آية 275",
-                    category: "فقه",
-                    points: 10
-                },
-                {
-                    id: 48,
-                    question: "ما حكم الاحتفال بالمولد النبوي؟",
-                    options: ["سنة", "بدعة", "مباح"],
-                    correct: 1,
-                    explanation: "الاحتفال بالمولد النبوي بدعة محدثة، لم يفعلها النبي ولا الصحابة.",
-                    source: "فتاوى اللجنة الدائمة (3/59)",
-                    category: "فقه",
-                    points: 10
-                },
-                {
-                    id: 49,
-                    question: "ما حكم التصوير ذوات الأرواح؟",
-                    options: ["مكروه", "حرام", "جائز للضرورة"],
-                    correct: 1,
-                    explanation: "تصوير ذوات الأرواح حرام، ولعن النبي المصورين.",
-                    source: "صحيح البخاري حديث رقم 5950",
-                    category: "فقه",
-                    points: 10
-                },
-                {
-                    id: 50,
-                    question: "ما حكم الموسيقى والغناء؟",
-                    options: ["مباح", "مكروه", "حرام"],
-                    correct: 2,
-                    explanation: "الموسيقى والغناء المحرم حرام بالإجماع، وهو من أعمال أهل النار.",
-                    source: "إغاثة اللهفان لابن القيم",
-                    category: "فقه",
-                    points: 10
-                },
-                // ... More Fiqh questions up to 75
-
-                // ===== SECTION 3: SEERAH (25 questions) =====
-                {
-                    id: 76,
-                    question: "كم كان عمر النبي ﷺ عند البعثة؟",
-                    options: ["25 سنة", "40 سنة", "35 سنة"],
-                    correct: 1,
-                    explanation: "بعث النبي ﷺ وعمره أربعون سنة، وهو سن الكمال.",
-                    source: "سيرة ابن هشام (1/234)",
-                    category: "سيرة",
-                    points: 10
-                },
-                {
-                    id: 77,
-                    question: "من أول من آمن بالنبي ﷺ من الرجال؟",
-                    options: ["علي بن أبي طالب", "أبو بكر الصديق", "زيد بن حارثة"],
-                    correct: 1,
-                    explanation: "أبو بكر الصديق رضي الله عنه أول من آمن من الرجال.",
-                    source: "البداية والنهاية لابن كثير (3/30)",
-                    category: "سيرة",
-                    points: 10
-                },
-                {
-                    id: 78,
-                    question: "كم استمرت الدعوة في مكة؟",
-                    options: ["10 سنوات", "13 سنة", "15 سنة"],
-                    correct: 1,
-                    explanation: "استمرت الدعوة السرية والجهرية في مكة ثلاث عشرة سنة.",
-                    source: "زاد المعاد لابن القيم (1/76)",
-                    category: "سيرة",
-                    points: 10
-                },
-                {
-                    id: 79,
-                    question: "ما هي أول غزوة للنبي ﷺ؟",
-                    options: ["بدر", "أحد", "الأبواء (ودان)"],
-                    correct: 2,
-                    explanation: "أول غزوة غزاها النبي ﷺ غزوة الأبواء وتسمى ودان.",
-                    source: "السيرة النبوية لابن كثير (3/246)",
-                    category: "سيرة",
-                    points: 10
-                },
-                {
-                    id: 80,
-                    question: "من هو 'سيف الله المسلول'؟",
-                    options: ["عمر بن الخطاب", "خالد بن الوليد", "علي بن أبي طالب"],
-                    correct: 1,
-                    explanation: "خالد بن الوليد رضي الله عنه سماه النبي ﷺ سيف الله المسلول.",
-                    source: "صحيح البخاري حديث رقم 2847",
-                    category: "سيرة",
-                    points: 10
-                },
-                // ... More Seerah questions up to 100
-
-                // ===== SECTION 4: REFUTING INNOVATIONS (20 questions) =====
-                {
-                    id: 101,
-                    question: "ما هو أصل بدعة الجهمية؟",
-                    options: [
-                        "إنكار أسماء الله وصفاته",
-                        "إنكار القدر",
-                        "إنكار الشفاعة"
-                    ],
-                    correct: 0,
-                    explanation: "أصل بدعتهم تعطيل أسماء الله وصفاتها، وأنكروا علو الله على خلقه.",
-                    source: "الرد على الجهمية للإمام أحمد",
-                    category: "رد شبهات",
-                    points: 15
-                },
-                {
-                    id: 102,
-                    question: "ما حكم من يقول: القرآن مخلوق؟",
-                    options: ["مبتدع", "كافر", "مجتهد مخطئ"],
-                    correct: 1,
-                    explanation: "من قال القرآن مخلوق فقد كفر، لأنه أنكر كون القرآن كلام الله.",
-                    source: "الرد على الجهمية لابن منده",
-                    category: "رد شبهات",
-                    points: 15
-                },
-                {
-                    id: 103,
-                    question: "ما حقيقة التصوف المبتدع؟",
-                    options: [
-                        "الزهد المشروع",
-                        "بدعة في الدين",
-                        "طريقة للترقي الروحي"
-                    ],
-                    correct: 1,
-                    explanation: "التصوف المبتدع يدخل فيه الشركيات والبدع كالاحتفال بالموالد ودعاء الأموات.",
-                    source: "مختصر منهاج السنة لابن تيمية",
-                    category: "رد شبهات",
-                    points: 15
-                },
-                {
-                    id: 104,
-                    question: "ما حكم دعاء الأموات والاستغاثة بهم؟",
-                    options: ["شرك أكبر", "شرك أصغر", "بدعة"],
-                    correct: 0,
-                    explanation: "دعاء الأموات والاستغاثة بهم شرك أكبر مخرج من الملة.",
-                    source: "فتاوى ابن باز (2/423)",
-                    category: "رد شبهات",
-                    points: 15
-                },
-                {
-                    id: 105,
-                    question: "ما الرد على من أنكر علو الله على خلقه؟",
-                    options: [
-                        "قول الله: {الرَّحْمَنُ عَلَى الْعَرْشِ اسْتَوَى}",
-                        "الأدلة العقلية",
-                        "إجماع العلماء"
-                    ],
-                    correct: 0,
-                    explanation: "نصوص الكتاب والسنة متواترة على علو الله على خلقه، كقوله تعالى: {الرَّحْمَنُ عَلَى الْعَرْشِ اسْتَوَى}.",
-                    source: "سورة طه آية 5",
-                    category: "رد شبهات",
-                    points: 15
-                },
-                {
-                    id: 106,
-                    question: "ما حكم الاحتفال بالموالد؟",
-                    options: ["سنة", "بدعة", "عادة"],
-                    correct: 1,
-                    explanation: "الاحتفال بالموالد بدعة محدثة، لم يفعلها النبي ولا الصحابة ولا التابعون.",
-                    source: "فتاوى اللجنة الدائمة (3/45)",
-                    category: "رد شبهات",
-                    points: 15
-                },
-                {
-                    id: 107,
-                    question: "ما الرد على من يقول بوحدة الوجود؟",
-                    options: [
-                        "أن الله ليس عين خلقه",
-                        "أنه قول الفلاسفة",
-                        "أنه يحتاج إلى تأويل"
-                    ],
-                    correct: 0,
-                    explanation: "وحدة الوجود كفر صريح، فالله تعالى ليس عين خلقه، بل هو خالق ومخلوقه مخلوق.",
-                    source: "درء تعارض العقل والنقل لابن تيمية",
-                    category: "رد شبهات",
-                    points: 15
-                },
-                {
-                    id: 108,
-                    question: "ما حكم الطواف على القبور؟",
-                    options: ["شرك أكبر", "بدعة", "جائز للتبرك"],
-                    correct: 0,
-                    explanation: "الطواف على القبور شرك أكبر، لأنه من العبادات التي لا تصرف إلا لله.",
-                    source: "فتاوى ابن باز (9/105)",
-                    category: "رد شبهات",
-                    points: 15
-                },
-                {
-                    id: 109,
-                    question: "ما الرد على من أنكر رؤية المؤمنين لربهم يوم القيامة؟",
-                    options: [
-                        "قول الله: {وُجُوهٌ يَوْمَئِذٍ نَّاضِرَةٌ إِلَىٰ رَبِّهَا نَاظِرَةٌ}",
-                        "الأحاديث الضعيفة",
-                        "الإجماع فقط"
-                    ],
-                    correct: 0,
-                    explanation: "رؤية المؤمنين لربهم ثابتة بنصوص الكتاب والسنة، كقوله تعالى: {وُجُوهٌ يَوْمَئِذٍ نَّاضِرَةٌ إِلَىٰ رَبِّهَا نَاظِرَةٌ}.",
-                    source: "سورة القيامة آية 22-23",
-                    category: "رد شبهات",
-                    points: 15
-                },
-                {
-                    id: 110,
-                    question: "ما حكم التوسل بجاه النبي ﷺ؟",
-                    options: ["سنة", "بدعة", "جائز"],
-                    correct: 1,
-                    explanation: "التوسل بجاه النبي بدعة، والتوسل المشروع هو بأسماء الله وصفاته أو بعمل صالح.",
-                    source: "القول المفيد لابن عثيمين",
-                    category: "رد شبهات",
-                    points: 15
-                },
-                // ... More refutation questions up to 120
-            ],
-
-            // ===== INITIALIZATION =====
             init() {
-                console.log("🕌 موسوعة السلفية - التطبيق يبدأ التشغيل");
-                
-                // Initialize loading
-                this.initLoading();
-                
-                // Initialize sounds
-                this.initSounds();
-                
-                // Load user stats
-                this.loadStats();
-                
-                // Setup event listeners
-                this.setupEventListeners();
-                
-                // Show loading screen
                 this.simulateLoading();
-            },
-
-            // ===== LOADING SYSTEM =====
-            initLoading() {
-                this.updateLoadingText();
-            },
-
-            updateLoadingText() {
-                document.getElementById('loading-questions').textContent = this.questions.length;
-                document.getElementById('loading-categories').textContent = '4';
-                document.getElementById('loading-time').textContent = (this.questions.length * 15) + '0';
+                this.initSounds();
+                this.loadStats();
+                this.setupEventListeners();
             },
 
             simulateLoading() {
@@ -1656,14 +1010,11 @@
                 }, 50);
             },
 
-            // ===== SOUND SYSTEM =====
             initSounds() {
-                this.sounds.correct = document.getElementById('sound-correct');
-                this.sounds.wrong = document.getElementById('sound-wrong');
-                this.sounds.complete = document.getElementById('sound-complete');
-                this.sounds.timer = document.getElementById('sound-timer');
-                
-                // Set volume to 30% to avoid being annoying
+                this.sounds = {
+                    correct: document.getElementById('sound-correct'),
+                    wrong: document.getElementById('sound-wrong')
+                };
                 Object.values(this.sounds).forEach(sound => {
                     if (sound) sound.volume = 0.3;
                 });
@@ -1671,11 +1022,10 @@
 
             playSound(type) {
                 if (!this.soundEnabled) return;
-                
                 const sound = this.sounds[type];
                 if (sound) {
                     sound.currentTime = 0;
-                    sound.play().catch(e => console.log("Sound play failed:", e));
+                    sound.play().catch(e => console.log("Sound error:", e));
                 }
             },
 
@@ -1685,186 +1035,61 @@
                 btn.innerHTML = this.soundEnabled ? 
                     '<i class="fas fa-volume-up"></i>' : 
                     '<i class="fas fa-volume-mute"></i>';
-                
-                this.showNotification(
-                    this.soundEnabled ? '🔊 تم تفعيل الصوت' : '🔇 تم إيقاف الصوت',
-                    'success'
-                );
             },
 
-            // ===== STATS & STORAGE =====
             loadStats() {
-                const savedStats = localStorage.getItem('salafi_encyclopedia_stats');
+                const savedStats = localStorage.getItem('salafi_stats');
                 if (savedStats) {
                     try {
                         this.userStats = JSON.parse(savedStats);
                     } catch (e) {
-                        this.resetStats();
+                        this.userStats = { bestScore: 0, totalPlayed: 0, totalCorrect: 0 };
                     }
-                }
-                
-                // Load progress
-                const savedProgress = localStorage.getItem('salafi_encyclopedia_progress');
-                if (savedProgress) {
-                    try {
-                        const progress = JSON.parse(savedProgress);
-                        this.score = progress.score || 0;
-                        this.currentQuestionIndex = progress.currentQuestionIndex || 0;
-                        this.correctAnswers = progress.correctAnswers || 0;
-                        this.shuffledQuestions = progress.shuffledQuestions || [];
-                        this.hasProgress = (this.currentQuestionIndex > 0 && this.currentQuestionIndex < this.questions.length);
-                    } catch (e) {
-                        this.clearProgress();
-                    }
+                } else {
+                    this.userStats = { bestScore: 0, totalPlayed: 0, totalCorrect: 0 };
                 }
             },
 
             saveStats() {
-                localStorage.setItem('salafi_encyclopedia_stats', JSON.stringify(this.userStats));
+                localStorage.setItem('salafi_stats', JSON.stringify(this.userStats));
             },
 
-            saveProgress() {
-                const progress = {
-                    score: this.score,
-                    currentQuestionIndex: this.currentQuestionIndex,
-                    correctAnswers: this.correctAnswers,
-                    shuffledQuestions: this.shuffledQuestions,
-                    timestamp: new Date().toISOString()
-                };
-                localStorage.setItem('salafi_encyclopedia_progress', JSON.stringify(progress));
-                this.hasProgress = true;
-            },
-
-            clearProgress() {
-                localStorage.removeItem('salafi_encyclopedia_progress');
-                this.score = 0;
-                this.currentQuestionIndex = 0;
-                this.correctAnswers = 0;
-                this.shuffledQuestions = [];
-                this.hasProgress = false;
-            },
-
-            resetStats() {
-                this.userStats = {
-                    bestScore: 0,
-                    totalPlayed: 0,
-                    totalCorrect: 0,
-                    totalTime: 0,
-                    lastPlayed: null
-                };
-                this.saveStats();
-            },
-
-            // ===== SCREEN MANAGEMENT =====
             setScreen(screenId) {
-                // Hide all screens
                 document.querySelectorAll('.screen').forEach(screen => {
                     screen.classList.remove('active');
                 });
-                
-                // Show target screen
-                const targetScreen = document.getElementById(screenId);
-                if (targetScreen) {
-                    targetScreen.classList.add('active');
-                    window.scrollTo(0, 0);
-                }
-                
-                // Update progress bar
-                this.updateGlobalProgress();
-                
-                // Update home screen if needed
-                if (screenId === 'scr-home') {
-                    this.updateHomeScreen();
-                }
+                document.getElementById(screenId).classList.add('active');
+                window.scrollTo(0, 0);
             },
 
-            updateGlobalProgress() {
-                if (this.currentQuestionIndex > 0 && this.shuffledQuestions.length > 0) {
-                    const progress = (this.currentQuestionIndex / this.shuffledQuestions.length) * 100;
-                    document.getElementById('global-progress').style.width = progress + '%';
-                } else {
-                    document.getElementById('global-progress').style.width = '0%';
-                }
-            },
-
-            // ===== HOME SCREEN =====
             showHome() {
+                document.getElementById('home-best-score').textContent = this.userStats.bestScore || 0;
+                document.getElementById('home-play-count').textContent = this.userStats.totalPlayed || 0;
                 this.setScreen('scr-home');
             },
 
-            updateHomeScreen() {
-                // Update stats
-                document.getElementById('home-best-score').textContent = this.userStats.bestScore || 0;
-                document.getElementById('home-play-count').textContent = this.userStats.totalPlayed || 0;
-                document.getElementById('home-correct').textContent = this.userStats.totalCorrect || 0;
-                
-                // Update level
-                const levelInfo = this.getLevelInfo(this.userStats.bestScore || 0);
-                document.getElementById('home-level').textContent = levelInfo.level;
-                
-                // Update resume section
-                const resumeSection = document.getElementById('resume-section');
-                const resumeBtn = document.getElementById('resume-btn');
-                const resumeProgress = document.getElementById('resume-progress');
-                
-                if (this.hasProgress && this.currentQuestionIndex > 0 && this.currentQuestionIndex < this.questions.length) {
-                    resumeSection.style.display = 'block';
-                    resumeProgress.textContent = `(السؤال ${this.currentQuestionIndex + 1}/${this.questions.length})`;
-                    resumeBtn.onclick = () => this.resumeQuiz();
-                } else {
-                    resumeSection.style.display = 'none';
-                    this.clearProgress();
-                }
-            },
-
-            // ===== QUIZ SYSTEM =====
             start() {
-                // Reset state
                 this.score = 0;
                 this.currentQuestionIndex = 0;
                 this.correctAnswers = 0;
                 this.timeLeft = 15;
                 this.isAnswered = false;
                 this.startTime = new Date();
-                this.hasProgress = true;
                 
-                // Shuffle questions
-                this.shuffledQuestions = [...this.questions].sort(() => Math.random() - 0.5);
+                this.shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
                 
-                // Update stats
                 this.userStats.totalPlayed = (this.userStats.totalPlayed || 0) + 1;
                 this.saveStats();
                 
-                // Start quiz
                 this.renderQuestion();
                 this.setScreen('scr-quiz');
-                
-                this.showNotification('🚀 ابدأ! لديك 15 ثانية لكل سؤال', 'success');
-            },
-
-            resumeQuiz() {
-                if (!this.hasProgress || this.currentQuestionIndex >= this.questions.length) {
-                    this.showNotification('لا يوجد تقدم محفوظ', 'warning');
-                    return;
-                }
-                
-                this.timeLeft = 15;
-                this.isAnswered = false;
-                this.renderQuestion();
-                this.setScreen('scr-quiz');
-                
-                this.showNotification(`↩️ استكمال من السؤال ${this.currentQuestionIndex + 1}`, 'success');
             },
 
             renderQuestion() {
-                // Clear previous timer
                 clearInterval(this.timer);
-                
-                // Reset state
                 this.isAnswered = false;
                 this.timeLeft = 15;
                 
-                // Check bounds
                 if (this.currentQuestionIndex >= this.shuffledQuestions.length) {
                     this.completeQuiz();
                     return;
@@ -1872,7 +1097,6 @@
                 
                 const question = this.shuffledQuestions[this.currentQuestionIndex];
                 
-                // Update UI
                 document.getElementById('q-text').textContent = question.question;
                 document.getElementById('category-tag').textContent = question.category;
                 document.getElementById('q-number').textContent = this.currentQuestionIndex + 1;
@@ -1882,12 +1106,9 @@
                 document.getElementById('next-btn').style.display = 'none';
                 document.getElementById('evidence-box').style.display = 'none';
                 
-                // Update points display based on category
                 const pointsDisplay = document.querySelector('.q-points');
                 pointsDisplay.textContent = `+${question.points} نقاط`;
-                pointsDisplay.style.color = question.category === 'رد شبهات' ? '#d4af37' : '#c19a6b';
                 
-                // Render options
                 const optionsBox = document.getElementById('options-box');
                 optionsBox.innerHTML = '';
                 
@@ -1902,7 +1123,6 @@
                     optionsBox.appendChild(optElement);
                 });
                 
-                // Start timer
                 this.startTimer();
             },
 
@@ -1911,7 +1131,6 @@
                 const timerText = document.getElementById('timer-text');
                 
                 timerFill.style.width = '100%';
-                timerFill.style.background = 'linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%)';
                 timerText.textContent = this.timeLeft;
                 
                 this.timer = setInterval(() => {
@@ -1919,15 +1138,10 @@
                     timerText.textContent = this.timeLeft;
                     timerFill.style.width = (this.timeLeft / 15 * 100) + '%';
                     
-                    // Change color when time is running out
                     if (this.timeLeft <= 5) {
                         timerFill.style.background = 'linear-gradient(90deg, var(--error) 0%, #9b2c2c 100%)';
-                        if (this.timeLeft <= 3) {
-                            this.playSound('timer');
-                        }
                     }
                     
-                    // Time's up
                     if (this.timeLeft <= 0) {
                         clearInterval(this.timer);
                         this.handleTimeOut();
@@ -1944,74 +1158,46 @@
                 const question = this.shuffledQuestions[this.currentQuestionIndex];
                 
                 if (selectedIndex === question.correct) {
-                    // Correct answer
                     element.classList.add('correct');
                     this.score += question.points;
                     this.correctAnswers++;
-                    
                     this.playSound('correct');
                     this.showResult('✅ إجابة صحيحة!', question.explanation, question.source, 'success');
                 } else {
-                    // Wrong answer
                     element.classList.add('wrong');
-                    
-                    // Highlight correct answer
                     const options = document.querySelectorAll('.opt');
                     if (options[question.correct]) {
                         options[question.correct].classList.add('correct');
                     }
-                    
                     this.playSound('wrong');
                     this.showResult('❌ إجابة خاطئة', question.explanation, question.source, 'error');
                 }
-                
-                // Save progress
-                this.saveProgress();
             },
 
             handleTimeOut() {
                 this.isAnswered = true;
-                
                 const question = this.shuffledQuestions[this.currentQuestionIndex];
                 const options = document.querySelectorAll('.opt');
                 
-                // Highlight correct answer
                 if (options[question.correct]) {
                     options[question.correct].classList.add('correct');
                 }
                 
                 this.playSound('wrong');
                 this.showResult('⏰ انتهى الوقت!', question.explanation, question.source, 'warning');
-                
-                // Save progress
-                this.saveProgress();
             },
 
             showResult(title, explanation, source, type) {
-                // Update score display
                 document.getElementById('score-val').textContent = this.score;
-                
-                // Show evidence
                 document.getElementById('evidence-text').textContent = explanation;
                 document.getElementById('source-text').textContent = `📚 المصدر: ${source}`;
                 document.getElementById('evidence-box').style.display = 'block';
-                
-                // Show next button
                 document.getElementById('next-btn').style.display = 'block';
                 document.getElementById('next-btn').onclick = () => this.nextQuestion();
-                
-                // Show notification
-                const points = this.shuffledQuestions[this.currentQuestionIndex].points;
-                const message = type === 'success' ? 
-                    `${title} (+${points} نقطة)` : 
-                    `${title} (خسارة ${points} نقطة)`;
-                
-                this.showNotification(message, type);
             },
 
             nextQuestion() {
                 this.currentQuestionIndex++;
-                
                 if (this.currentQuestionIndex < this.shuffledQuestions.length) {
                     this.renderQuestion();
                 } else {
@@ -2022,201 +1208,73 @@
             completeQuiz() {
                 clearInterval(this.timer);
                 
-                // Calculate completion time
                 const endTime = new Date();
                 const timeDiff = Math.floor((endTime - this.startTime) / 1000);
-                const minutes = Math.floor(timeDiff / 60);
-                const seconds = timeDiff % 60;
                 
-                // Update user stats
-                this.userStats.totalTime = (this.userStats.totalTime || 0) + minutes;
                 this.userStats.totalCorrect = (this.userStats.totalCorrect || 0) + this.correctAnswers;
-                this.userStats.lastPlayed = new Date().toISOString();
-                
-                // Update best score
                 if (this.score > (this.userStats.bestScore || 0)) {
                     this.userStats.bestScore = this.score;
                 }
-                
                 this.saveStats();
-                this.clearProgress();
                 
-                // Update completion screen
                 document.getElementById('final-score').textContent = this.score;
                 document.getElementById('total-score').textContent = this.score;
                 document.getElementById('correct-count').textContent = this.correctAnswers;
-                document.getElementById('completion-time').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
                 
-                // Update achievement level
                 const levelInfo = this.getLevelInfo(this.score);
                 document.getElementById('achievement-level').textContent = levelInfo.level;
-                document.getElementById('achievement-message').textContent = levelInfo.message;
                 
-                // Play completion sound
-                this.playSound('complete');
-                
-                // Show completion screen
                 this.setScreen('scr-complete');
-                
-                // Show final notification
-                this.showNotification(
-                    `🎉 تهانينا! أكملت الموسوعة بنقاط: ${this.score} - ${levelInfo.level}`,
-                    'success'
-                );
             },
 
-            saveAndExit() {
-                clearInterval(this.timer);
-                
-                if (this.currentQuestionIndex >= this.shuffledQuestions.length) {
-                    this.completeQuiz();
-                    return;
-                }
-                
-                this.saveProgress();
-                this.showNotification('💾 تم حفظ تقدمك بنجاح', 'success');
-                this.showHome();
-            },
-
-            // ===== LEVEL SYSTEM =====
             getLevelInfo(score) {
-                if (score >= 4000) {
-                    return {
-                        level: "راسخ في العلم",
-                        badge: "⭐⭐⭐⭐⭐ خبير",
-                        message: "أنت من الراسخين في العلم، بارك الله فيك!"
-                    };
-                } else if (score >= 3000) {
-                    return {
-                        level: "مجتهد",
-                        badge: "⭐⭐⭐⭐ ممتاز",
-                        message: "مستوى رائع! أنت مجتهد في طلب العلم"
-                    };
-                } else if (score >= 1500) {
-                    return {
-                        level: "طالب علم جاد",
-                        badge: "⭐⭐⭐ متقدم",
-                        message: "مستوى متقدم، استمر في التميز"
-                    };
-                } else if (score >= 500) {
-                    return {
-                        level: "متفوق",
-                        badge: "⭐⭐ متوسط",
-                        message: "مستوى جيد، واصل التقدم"
-                    };
-                } else {
-                    return {
-                        level: "طالب علم",
-                        badge: "⭐ مبتدئ",
-                        message: "ابدأ رحلتك في طلب العلم"
-                    };
-                }
+                if (score >= 4000) return { level: "راسخ في العلم" };
+                if (score >= 3000) return { level: "مجتهد" };
+                if (score >= 1500) return { level: "طالب علم جاد" };
+                if (score >= 500) return { level: "متفوق" };
+                return { level: "طالب علم" };
             },
 
-            // ===== STATS SCREEN =====
             showStats() {
-                // Update stats display
                 document.getElementById('stat-best-score').textContent = this.userStats.bestScore || 0;
                 document.getElementById('stat-total-games').textContent = this.userStats.totalPlayed || 0;
                 document.getElementById('stat-total-correct').textContent = this.userStats.totalCorrect || 0;
                 
-                // Calculate derived stats
-                const totalQuestionsAttempted = (this.userStats.totalPlayed || 0) * this.questions.length;
-                const avgScore = (this.userStats.totalPlayed || 0) > 0 ? 
-                    Math.floor((this.userStats.bestScore || 0) / (this.userStats.totalPlayed || 1)) : 0;
-                const successRate = totalQuestionsAttempted > 0 ? 
-                    Math.floor(((this.userStats.totalCorrect || 0) / totalQuestionsAttempted) * 100) : 0;
+                const totalQuestions = (this.userStats.totalPlayed || 0) * 120;
+                const percentage = totalQuestions > 0 ? 
+                    Math.floor(((this.userStats.totalCorrect || 0) / totalQuestions) * 100) : 0;
                 
-                document.getElementById('stat-avg-score').textContent = avgScore;
-                document.getElementById('stat-percentage').textContent = successRate + '%';
-                document.getElementById('stat-total-time').textContent = this.userStats.totalTime || 0;
-                
-                // Update level info
-                const levelInfo = this.getLevelInfo(this.userStats.bestScore || 0);
-                document.getElementById('current-level-badge').textContent = levelInfo.badge;
-                document.getElementById('level-description').textContent = levelInfo.message;
-                
+                document.getElementById('stat-percentage').textContent = percentage + '%';
                 this.setScreen('scr-stats');
             },
 
-            // ===== ABOUT SCREEN =====
-            showAbout() {
-                this.setScreen('scr-about');
-            },
-
-            // ===== NAVIGATION =====
             returnToHome() {
                 this.showHome();
             },
 
-            // ===== EVENT LISTENERS =====
             setupEventListeners() {
-                // Sound toggle
                 document.getElementById('sound-toggle').addEventListener('click', () => this.toggleSound());
-                
-                // Start button
                 document.getElementById('start-btn').addEventListener('click', () => this.start());
                 
-                // Resume button
-                const resumeBtn = document.getElementById('resume-btn');
-                if (resumeBtn) {
-                    resumeBtn.addEventListener('click', () => this.resumeQuiz());
-                }
-                
-                // Keyboard shortcuts
                 document.addEventListener('keydown', (e) => {
-                    // Number keys 1-3 for answering
                     if (document.getElementById('scr-quiz').classList.contains('active') && !this.isAnswered) {
                         if (e.key >= '1' && e.key <= '3') {
                             const index = parseInt(e.key) - 1;
                             const options = document.querySelectorAll('.opt');
-                            if (options[index]) {
-                                this.checkAnswer(index, options[index]);
-                            }
+                            if (options[index]) this.checkAnswer(index, options[index]);
                         }
                     }
-                    
-                    // Enter for next question
                     if (e.key === 'Enter' && document.getElementById('next-btn').style.display !== 'none') {
                         this.nextQuestion();
                     }
                 });
-                
-                // Prevent zoom on double tap
-                let lastTouchEnd = 0;
-                document.addEventListener('touchend', (e) => {
-                    const now = Date.now();
-                    if (now - lastTouchEnd <= 300) {
-                        e.preventDefault();
-                    }
-                    lastTouchEnd = now;
-                }, { passive: false });
-            },
-
-            // ===== NOTIFICATION SYSTEM =====
-            showNotification(message, type = 'info') {
-                const notification = document.getElementById('notification');
-                notification.innerHTML = `
-                    <div>${message}</div>
-                    <i class="fas fa-times" onclick="this.parentElement.classList.remove('show')"></i>
-                `;
-                
-                notification.className = `notification ${type}`;
-                notification.classList.add('show');
-                
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, 3000);
             }
         };
 
-        // ===== INITIALIZE APP =====
         document.addEventListener('DOMContentLoaded', () => {
-            console.log("📱 تطبيق موسوعة السلفية جاهز للتشغيل");
             app.init();
         });
 
-        // ===== MAKE APP GLOBAL =====
         window.app = app;
     </script>
 </body>
